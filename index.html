@@ -50,18 +50,31 @@
             display: inline-block;
         }
 
+        #resposta, #resposta2, #resposta3, #resposta4 {
+            color: orange;
+        }
+
+        #atualizacao {
+            display: inline;
+            margin-right: 50px;
+            float: right;
+            text-align: right;
+        }
+
     </style>
 </head>
 <body>
 
 <h1>Calculadora do Vector</h1>
 <div id="tudofodase">
+
     <div>
         Multiplicação:
         <br>
         Primeiro número: <input type="number" id="n1">
         Segundo número: <input type="number" id="n2">
         <button onclick="check()">Multiplicar</button>
+        Resposta: <div id="resposta" style="display: inline-block;"></div>
     </div>
 
     <br>
@@ -72,6 +85,7 @@
         Primeiro número: <input type="number" id="n3">
         Segundo número: <input type="number" id="n4">
         <button onclick="add()">Adicionar</button>
+        Resposta: <div id="resposta2" style="display: inline-block;"></div>
     </div>
 
     <br>
@@ -82,6 +96,7 @@
         Primeiro número: <input type="number" id="n5">
         Segundo número: <input type="number" id="n6">
         <button onclick="div()">Dividir</button>
+        Resposta: <div id="resposta3" style="display: inline-block;"></div>
     </div>
 
     <br>
@@ -92,6 +107,7 @@
         Primeiro número: <input type="number" id="n7">
         Segundo número: <input type="number" id="n8">
         <button onclick="sub()">Subtrair</button>
+        Resposta: <div id="resposta4" style="display: inline-block;"></div>
     </div>
 </div>
 
@@ -103,14 +119,24 @@
     <h3>Colaborador: Miguel Francisco</h3>
 </div>
 
+    <div id="atualizacao">
+        <h1>Atualizações</h1>
+        <h2>Respostas</h2>
+        <p>Agora as respostas não saem mais da página, então não precisa recarregar.</p>
+    </div>
+
     <script>
+
         alert("Seja bem-vindo(a) a Calculadora do Vector. AHHHHHH ÉÉÉÉ")
 
         function check(){
         var n1 = parseInt(document.getElementById("n1").value)
         var n2 = parseInt(document.getElementById("n2").value)
 
-        document.write("O resultado é: ", n1*n2, "<br> Para fazer outro cálculo, recarregue a página")
+        var resultado = n1*n2
+
+        document.getElementById("resposta").innerHTML = resultado 
+
         var audio = new Audio('ae_audio.mp3');
         audio.volume = 0.3
         audio.play();
@@ -121,7 +147,10 @@
             var n3 = parseInt(document.getElementById("n3").value)
             var n4 = parseInt(document.getElementById("n4").value)
 
-            document.write("O resultado é: ", n3+n4, "<br> Para fazer outro cálculo, recarregue a página")
+            var resultado2 = n3+n4
+
+            document.getElementById("resposta2").innerHTML = resultado2 
+
             var audio = new Audio('ae_audio.mp3');
             audio.volume = 0.3
             audio.play();
@@ -131,7 +160,10 @@
             var n5 = parseInt(document.getElementById("n5").value)
             var n6 = parseInt(document.getElementById("n6").value)
 
-            document.write("O resultado é: ", n5/n6, "<br> Para fazer outro cálculo, recarregue a página")
+            var resultado3 = n5/n6
+
+            document.getElementById("resposta3").innerHTML = resultado3
+
             var audio = new Audio('ae_audio.mp3');
             audio.volume = 0.3
             audio.play();
@@ -140,9 +172,12 @@
         function sub(){
             var n7 = parseInt(document.getElementById("n7").value)
             var n8 = parseInt(document.getElementById("n8").value)
+            var resultado4 = n7-n8
 
-            document.write("O resultado é: ", n7-n8, "<br> Para fazer outro cálculo, recarregue a página")
+            document.getElementById("resposta4").innerHTML = resultado4
+
             var audio = new Audio('ae_audio.mp3');
+            audio.volume = 0.3
             audio.play();
         }
     </script>
